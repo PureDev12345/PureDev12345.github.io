@@ -1,75 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PureDev - Unity Developer</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PureDev - Abdullah Bin Sheeraz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #00ffe7;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00ffe7;
+    }
+
+    .bio, .projects, .socials {
+      margin-bottom: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #1f1f1f;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid #00ffe7;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: #00ffe7;
+    }
+
+    .project-card p {
+      color: #ccc;
+    }
+
+    .socials a {
+      display: inline-block;
+      margin-right: 1rem;
+      color: #00ffe7;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .socials a:hover {
+      color: #00c2b7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <div class="container">
-      <h1>PureDev</h1>
-      <p>Unity Game Developer | C# Coder | Blender Artist</p>
-    </div>
+    <h1>PureDev</h1>
+    <p>Abdullah Bin Sheeraz – 16 y/o Unity Game Developer from Pakistan</p>
   </header>
 
-  <section class="about" data-aos="fade-up">
-    <div class="container">
+  <div class="container">
+    <section class="bio">
       <h2>About Me</h2>
-      <p>Hi, I’m <strong>PureDev</strong>, a passionate game developer with over 3 years of experience in Unity. I bring ideas to life through C# scripting, creative Blender designs, and intuitive gameplay systems. Whether it’s 2D, 3D, or prototypes—I love building games that leave a mark.</p>
-    </div>
-  </section>
+      <p>Hi! I'm Abdullah Bin Sheeraz. I'm a 16-year-old game developer from Pakistan. I started game development in 2020 and have since built skills in Unity, Scratch, and Blender (still learning). I primarily create 3D games, but I’ve also dabbled in 2D.</p>
+    </section>
 
-  <section class="skills" data-aos="fade-right">
-    <div class="container">
-      <h2>Skills</h2>
-      <ul>
-        <li><i class="fab fa-unity"></i> Unity (3+ Years)</li>
-        <li><i class="fas fa-code"></i> C# Programming</li>
-        <li><i class="fab fa-blender"></i> Blender Modeling</li>
-        <li><i class="fas fa-gamepad"></i> Game Design</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="projects" data-aos="fade-left">
-    <div class="container">
+    <section class="projects">
       <h2>Projects</h2>
-      <div class="project-grid">
+      <div class="projects-grid">
         <div class="project-card">
-          <h3>Simple Dodging Game</h3>
-          <p>Fast-paced endless dodging game in 3D.</p>
+          <h3>Fiverr Games</h3>
+          <p>Games made for Fiverr clients: Fire Dodge, Whack A Mole, Color Memory, Face Memory, Apple Catch</p>
+        </div>
+        <div class="project-card">
+          <h3>Dodge Game Tutorial</h3>
+          <p>A fun tutorial I made to help beginners create a basic dodge-style game in Unity.</p>
         </div>
         <div class="project-card">
           <h3>Ant Game</h3>
-          <p>In works game, with AI nav mesh agents, mood programming and detailed interactions.</p>
-        </div>
-        <div class="project-card">
-          <h3>Fiverr</h3>
-          <p>Series of many small scale projects.</p>
+          <p>A unique strategy game where ants gather sugar and work together – currently in development!</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" data-aos="fade-up">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Got a cool idea? Want to collaborate? Let’s connect!</p>
-      <a href="mailto:puredev12345@gmail.com" class="btn">Send Email</a>
-    </div>
-  </section>
+    <section class="socials">
+      <h2>Find Me Online</h2>
+      <a href="https://www.youtube.com/@puredev12345" target="_blank">YouTube</a>
+      <a href="https://www.linkedin.com/in/abdullah-sheeraz-730664379/" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank">Instagram</a>
+      <a href="https://www.fiverr.com/abdullah1946" target="_blank">Fiverr</a>
+    </section>
+  </div>
 
   <footer>
-    <p>© 2025 PureDev | Game Developer & YouTuber</p>
+    &copy; 2025 Abdullah Bin Sheeraz | PureDev
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
 </body>
+
 </html>
