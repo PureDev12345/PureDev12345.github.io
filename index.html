@@ -4,10 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PureDev — Abdullah bin Sheeraz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <meta name="description" content="PureDev — Abdullah bin Sheeraz. Teen indie game developer from Pakistan. Unity • 3D/2D • Scratch • Blender. Portfolio, projects, and links." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <style>
-    :root{
+    /* ========== VARIABLES ========== */
+    :root {
       --bg: #0b0b10;
       --panel: rgba(20,20,30,.6);
       --panel-solid: #141424;
@@ -19,74 +24,160 @@
       --shadow: 0 10px 40px rgba(0,0,0,.45);
       --radius-xl: 22px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text); background:radial-gradient(1200px 800px at 20% -10%,#1a1a3a 0%, transparent 60%),
-                         radial-gradient(900px 600px at 120% 10%,#132b38 0%, transparent 55%),
-                         linear-gradient(180deg,#0a0a12, #0b0b10 40%, #0a0a12 100%);
+
+    /* ========== GLOBAL ========== */
+    * { box-sizing:border-box }
+    html,body { height:100% }
+    body {
+      margin:0; 
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); 
+      background:
+        radial-gradient(1200px 800px at 20% -10%,#1a1a3a 0%, transparent 60%),
+        radial-gradient(900px 600px at 120% 10%,#132b38 0%, transparent 55%),
+        linear-gradient(180deg,#0a0a12, #0b0b10 40%, #0a0a12 100%);
       overflow-x:hidden;
     }
-    /* Subtle animated stars */
-    .stars{position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.25) 50%, transparent 51%),radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.18) 50%, transparent 51%),radial-gradient(1.5px 1.5px at 40% 80%,rgba(255,255,255,.16) 50%, transparent 51%);}    
-    header.nav{position:sticky; top:0; z-index:10; backdrop-filter:blur(10px); background:linear-gradient(180deg, rgba(10,10,18,.8), rgba(10,10,18,.45)); border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav-wrap{max-width:1150px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 18px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px}
-    .logo{position:relative; width:36px; height:36px; border-radius:12px; background:conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent), var(--brand)); box-shadow:0 0 30px rgba(0,255,231,.25)}
-    .brand span{font-size:1.05rem}
-    nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
-    nav a{color:var(--text); text-decoration:none; font-weight:600; opacity:.85}
-    nav a:hover{opacity:1; text-shadow:0 0 12px rgba(0,255,231,.35)}
 
-    .hero{position:relative; z-index:1; max-width:1150px; margin:0 auto; padding:80px 18px 40px}
-    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(0,255,231,.08); border:1px solid rgba(0,255,231,.25); color:var(--brand)}
-    .title{margin:18px 0 10px; font-size:clamp(2.2rem, 5vw, 4rem); line-height:1.05; font-weight:800; letter-spacing:.4px}
-    .title .grad{background:linear-gradient(90deg, var(--brand) 0%, var(--accent) 50%, var(--brand-2) 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 10px 25px rgba(0,255,231,.18))}
-    .subtitle{color:var(--muted); max-width:760px}
-    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text); text-decoration:none; font-weight:700; box-shadow:var(--shadow)}
-    .btn:hover{transform:translateY(-2px); box-shadow:0 12px 35px rgba(0,0,0,.5)}
-    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--accent)); color:#001b1a; border:none}
+    /* Stars background */
+    .stars {
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.25) 50%, transparent 51%),
+        radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.18) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 40% 80%,rgba(255,255,255,.16) 50%, transparent 51%);
+    }
 
-    .grid{max-width:1150px; margin:0 auto; padding:24px 18px 80px; display:grid; grid-template-columns:repeat(12, 1fr); gap:22px}
-    .card{grid-column:span 12; background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-xl); padding:22px; box-shadow:var(--shadow); backdrop-filter: blur(14px)}
-    .card h3{margin:0 0 8px; font-size:1.3rem}
-    .muted{color:var(--muted)}
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .chip{padding:8px 12px; border-radius:999px; background:#0f1624; border:1px solid rgba(255,255,255,.08); color:#bfefff; font-weight:600; font-size:.9rem}
+    /* ========== NAVBAR ========== */
+    header.nav {
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:blur(10px); 
+      background:linear-gradient(180deg, rgba(10,10,18,.8), rgba(10,10,18,.45));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-wrap {
+      max-width:1150px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+    }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px }
+    .logo {
+      width:36px; height:36px; border-radius:12px;
+      background:conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent), var(--brand));
+      box-shadow:0 0 30px rgba(0,255,231,.25)
+    }
+    .brand span { font-size:1.05rem }
+    nav ul { display:flex; gap:22px; list-style:none; margin:0; padding:0 }
+    nav a {
+      color:var(--text); text-decoration:none; font-weight:600; opacity:.85;
+    }
+    nav a:hover { opacity:1; text-shadow:0 0 12px rgba(0,255,231,.35) }
 
-    /* Sections */
-    .split{display:grid; grid-template-columns:repeat(12,1fr); gap:22px; align-items:stretch}
-    .split > .card{grid-column:span 12}
-    @media(min-width:860px){
+    /* ========== HERO ========== */
+    .hero { 
+      position:relative; z-index:1;
+      max-width:1150px; margin:0 auto; padding:80px 18px 40px;
+    }
+    .tag {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:999px;
+      background:rgba(0,255,231,.08); border:1px solid rgba(0,255,231,.25);
+      color:var(--brand);
+    }
+    .title {
+      margin:18px 0 10px;
+      font-size:clamp(2.2rem, 5vw, 4rem);
+      line-height:1.05; font-weight:800; letter-spacing:.4px;
+    }
+    .title .grad {
+      background:linear-gradient(90deg, var(--brand) 0%, var(--accent) 50%, var(--brand-2) 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      filter:drop-shadow(0 10px 25px rgba(0,255,231,.18));
+    }
+    .subtitle { color:var(--muted); max-width:760px }
+    .cta { display:flex; gap:14px; flex-wrap:wrap; margin-top:22px }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      color:var(--text); text-decoration:none; font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 12px 35px rgba(0,0,0,.5) }
+    .btn.primary {
+      background:linear-gradient(90deg, var(--brand), var(--accent));
+      color:#001b1a; border:none;
+    }
+
+    /* ========== GRID & CARDS ========== */
+    .grid { 
+      max-width:1150px; margin:0 auto;
+      padding:24px 18px 80px; 
+      display:grid; grid-template-columns:repeat(12, 1fr); gap:22px;
+    }
+    .card {
+      grid-column:span 12; background:var(--panel);
+      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-xl);
+      padding:22px; box-shadow:var(--shadow); backdrop-filter: blur(14px);
+    }
+    .card h3 { margin:0 0 8px; font-size:1.3rem }
+    .muted { color:var(--muted) }
+
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
+    .chip {
+      padding:8px 12px; border-radius:999px;
+      background:#0f1624; border:1px solid rgba(255,255,255,.08);
+      color:#bfefff; font-weight:600; font-size:.9rem;
+    }
+
+    /* ========== SPLIT LAYOUTS ========== */
+    .split { display:grid; grid-template-columns:repeat(12,1fr); gap:22px; align-items:stretch }
+    .split > .card { grid-column:span 12 }
+    @media(min-width:860px) {
       .split > .card:first-child{grid-column:span 7}
       .split > .card:last-child{grid-column:span 5}
     }
 
-    .projects{display:grid; grid-template-columns:repeat(12,1fr); gap:22px}
-    .project{grid-column:span 12; padding:0; overflow:hidden}
-    @media(min-width:760px){ .project{grid-column:span 6} }
-    .project .cover{height:180px; background:linear-gradient(120deg, rgba(0,255,231,.18), rgba(124,77,255,.22)); border-bottom:1px solid rgba(255,255,255,.06)}
-    .project .inner{padding:18px 20px}
-    .project h4{margin:0 0 6px}
-    .project p{margin:0; color:var(--muted)}
-    .project:hover{transform:translateY(-4px)}
+    /* ========== PROJECTS GRID ========== */
+    .projects { display:grid; grid-template-columns:repeat(12,1fr); gap:22px }
+    .project { grid-column:span 12; padding:0; overflow:hidden }
+    @media(min-width:760px) { .project { grid-column:span 6 } }
+    .project .cover {
+      height:180px; 
+      background:linear-gradient(120deg, rgba(0,255,231,.18), rgba(124,77,255,.22));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .project .inner { padding:18px 20px }
+    .project h4 { margin:0 0 6px }
+    .project p { margin:0; color:var(--muted) }
+    .project:hover { transform:translateY(-4px) }
 
-    .section-title{display:flex; align-items:center; gap:10px; margin:26px 0 14px; font-weight:800; letter-spacing:.3px}
-    .section-title .dot{width:10px; height:10px; border-radius:50%; background:var(--brand); box-shadow:0 0 18px var(--brand)}
+    /* ========== SECTION TITLES ========== */
+    .section-title {
+      display:flex; align-items:center; gap:10px;
+      margin:26px 0 14px; font-weight:800; letter-spacing:.3px;
+    }
+    .section-title .dot {
+      width:10px; height:10px; border-radius:50%;
+      background:var(--brand); box-shadow:0 0 18px var(--brand);
+    }
 
-    .footer{border-top:1px solid rgba(255,255,255,.06); background:#0b0b12; padding:26px 18px; color:var(--muted)}
+    /* ========== FOOTER ========== */
+    .footer {
+      border-top:1px solid rgba(255,255,255,.06);
+      background:#0b0b12; padding:26px 18px; color:var(--muted)
+    }
 
-    /* Scroll reveal */
-    .reveal{opacity:0; transform:translateY(16px); transition:all .6s ease}
-    .reveal.show{opacity:1; transform:none}
+    /* ========== SCROLL REVEAL ========== */
+    .reveal { opacity:0; transform:translateY(16px); transition:all .6s ease }
+    .reveal.show { opacity:1; transform:none }
   </style>
 </head>
 <body>
   <div class="stars"></div>
 
-  <!-- NAV -->
+  <!-- ================= NAV ================= -->
   <header class="nav">
     <div class="nav-wrap">
       <div class="brand">
@@ -104,7 +195,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ================= HERO ================= -->
   <section class="hero">
     <span class="tag">🎮 Teen Indie Game Dev • Since 2020</span>
     <h1 class="title">Hi, I'm <span class="grad">Abdullah bin Sheeraz</span></h1>
@@ -117,14 +208,14 @@
     </div>
   </section>
 
-  <!-- CONTENT GRID -->
+  <!-- ================= MAIN GRID ================= -->
   <main class="grid">
 
-    <!-- ABOUT + STATS -->
+    <!-- ABOUT + FAST FACTS -->
     <div id="about" class="split reveal">
       <article class="card">
         <h3>About</h3>
-        <p class="muted">I'm a self‑taught developer focused on gameplay feel, level design, and rapid iteration. I love making arcade‑style challenges and systems‑driven sandboxes. I share builds and devlogs on my channel <b>PureDev</b>.</p>
+        <p class="muted">I'm a self-taught developer focused on gameplay feel, level design, and rapid iteration. I love making arcade-style challenges and systems-driven sandboxes. I share builds and devlogs on my channel <b>PureDev</b>.</p>
         <div class="chips">
           <span class="chip">Unity (C#)</span>
           <span class="chip">3D Gameplay</span>
@@ -148,6 +239,7 @@
     <section id="skills" class="reveal">
       <h3 class="section-title"><span class="dot"></span> Skills</h3>
       <div class="projects">
+        <!-- Unity -->
         <div class="card project">
           <div class="cover"></div>
           <div class="inner">
@@ -155,6 +247,7 @@
             <p>Gameplay loops, physics, input, UI, scenes, builds.</p>
           </div>
         </div>
+        <!-- Scratch -->
         <div class="card project">
           <div class="cover"></div>
           <div class="inner">
@@ -162,6 +255,7 @@
             <p>Rapid prototyping, logic blocks, beginner teaching.</p>
           </div>
         </div>
+        <!-- Blender -->
         <div class="card project">
           <div class="cover"></div>
           <div class="inner">
@@ -169,6 +263,7 @@
             <p>Blockouts, simple props, basic animations and export.</p>
           </div>
         </div>
+        <!-- Game Design -->
         <div class="card project">
           <div class="cover"></div>
           <div class="inner">
@@ -182,17 +277,16 @@
     <!-- PROJECTS -->
     <section id="projects" class="reveal">
       <h3 class="section-title"><span class="dot"></span> Projects</h3>
-
       <div class="projects">
-        <!-- Fiverr group card that links to list below -->
+        <!-- Fiverr Games -->
         <a class="card project" href="#fiverr-list" style="text-decoration:none; color:inherit">
           <div class="cover"></div>
           <div class="inner">
             <h4>Fiverr Games (5)</h4>
-            <p>Commissioned mini‑games delivered for clients — polished, performant, and fun.</p>
+            <p>Commissioned mini-games delivered for clients — polished, performant, and fun.</p>
             <div class="chips">
               <span class="chip">Fire Dodge</span>
-              <span class="chip">Whack‑a‑Mole</span>
+              <span class="chip">Whack-a-Mole</span>
               <span class="chip">Color Memory</span>
               <span class="chip">Face Memory</span>
               <span class="chip">Apple Catch</span>
@@ -200,44 +294,51 @@
           </div>
         </a>
 
+        <!-- Dodge Game -->
         <div class="card project">
           <div class="cover"></div>
           <div class="inner">
             <h4>Dodge Game — Tutorial</h4>
-            <p>Step‑by‑step series showing the full build process from blank project to playable.</p>
+            <p>Step-by-step series showing the full build process from blank project to playable.</p>
             <div class="chips"><span class="chip">YouTube</span><span class="chip">Unity</span></div>
-            <div style="margin-top:12px"><a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">Watch series</a></div>
+            <div style="margin-top:12px">
+              <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">Watch series</a>
+            </div>
           </div>
         </div>
 
+        <!-- Ant Game -->
         <div class="card project">
           <div class="cover"></div>
           <div class="inner">
             <h4>Ant Game — WIP</h4>
-            <p>Systems‑driven colony sim prototype with resource flow and emergent behavior.</p>
+            <p>Systems-driven colony sim prototype with resource flow and emergent behavior.</p>
             <div class="chips"><span class="chip">In Development</span><span class="chip">3D</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Fiverr detailed list -->
+      <!-- Fiverr Detailed List -->
       <div id="fiverr-list" class="card" style="margin-top:10px">
-        <h3 style="margin:0 0 8px">Fiverr Projects — Details</h3>
+        <h3>Fiverr Projects — Details</h3>
         <ol class="muted" style="margin:0 0 0 18px; line-height:2">
           <li>Fire Dodge</li>
-          <li>Whack‑a‑Mole</li>
+          <li>Whack-a-Mole</li>
           <li>Color Memory</li>
           <li>Face Memory</li>
           <li>Apple Catch</li>
         </ol>
-        <div style="margin-top:14px"><a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Hire me on Fiverr</a></div>
+        <div style="margin-top:14px">
+          <a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Hire me on Fiverr</a>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT / LINKS -->
+    <!-- CONTACT -->
     <section id="contact" class="reveal">
       <h3 class="section-title"><span class="dot"></span> Contact & Links</h3>
       <div class="split">
+        <!-- Contact Info -->
         <article class="card">
           <h3>Let’s build something fun</h3>
           <p class="muted">Best way to reach me is via Fiverr for commissions, or DM me on Instagram. I post devlogs and tutorials on YouTube.</p>
@@ -246,37 +347,39 @@
             <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube</a>
             <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a>
           </div>
+                    </div>
         </article>
+
+        <!-- Quick Links -->
         <aside class="card">
-          <h3>Availability</h3>
+          <h3>Quick Links</h3>
           <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
-            <li>Part‑time (student schedule)</li>
-            <li>Short arcade projects ideal</li>
-            <li>Unity only (for now)</li>
-            <li>Remote friendly</li>
+            <li><a href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube Channel</a></li>
+            <li><a href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Fiverr Profile</a></li>
+            <li><a href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a></li>
           </ul>
         </aside>
       </div>
     </section>
-
   </main>
 
+  <!-- ================= FOOTER ================= -->
   <footer class="footer">
-    <div style="max-width:1150px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
-      <span>© <span id="year"></span> PureDev • Built with Unity vibes</span>
-      <a href="#" class="btn" style="padding:8px 12px">↑ Back to top</a>
-    </div>
+    <p>© 2025 PureDev — Abdullah bin Sheeraz. All rights reserved.</p>
   </footer>
 
+  <!-- ================= JS (Scroll Reveal) ================= -->
   <script>
-    // dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // simple scroll reveal
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) el.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
   </script>
 </body>
 </html>
