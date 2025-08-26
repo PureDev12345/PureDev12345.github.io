@@ -1,385 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PureDev — Abdullah bin Sheeraz</title>
-  <meta name="description" content="PureDev — Abdullah bin Sheeraz. Teen indie game developer from Pakistan. Unity • 3D/2D • Scratch • Blender. Portfolio, projects, and links." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PureDev — Abdullah bin Sheeraz</title>
+  <meta name="description" content="PureDev — Abdullah bin Sheeraz. Teen indie game developer from Pakistan. Unity • 3D/2D • Scratch • Blender. Portfolio, projects, and links." />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <style>
-    /* ========== VARIABLES ========== */
-    :root {
-      --bg: #0b0b10;
-      --panel: rgba(20,20,30,.6);
-      --panel-solid: #141424;
-      --text: #e8f7ff;
-      --muted: #a9b7c7;
-      --brand: #00ffe7;
-      --brand-2: #7c4dff;
-      --accent: #00b8ff;
-      --shadow: 0 10px 40px rgba(0,0,0,.45);
-      --radius-xl: 22px;
-    }
+    <style>
+    /* ========== VARIABLES ========== */
+    :root {
+      --bg: #0b0b10;
+      --panel: rgba(20,20,30,.6);
+      --panel-solid: #141424;
+      --text: #e8f7ff;
+      --muted: #a9b7c7;
+      --brand: #00ffe7;
+      --brand-2: #7c4dff;
+      --accent: #00b8ff;
+      --shadow: 0 10px 40px rgba(0,0,0,.45);
+      --radius-xl: 22px;
+    }
 
-    /* ========== GLOBAL ========== */
-    * { box-sizing:border-box }
-    html,body { height:100% }
-    body {
-      margin:0; 
-      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text); 
-      background:
-        radial-gradient(1200px 800px at 20% -10%,#1a1a3a 0%, transparent 60%),
-        radial-gradient(900px 600px at 120% 10%,#132b38 0%, transparent 55%),
-        linear-gradient(180deg,#0a0a12, #0b0b10 40%, #0a0a12 100%);
-      overflow-x:hidden;
-    }
+    /* ========== GLOBAL ========== */
+    * { box-sizing:border-box }
+    html,body { height:100% }
+    body {
+      margin:0; 
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); 
+      background:
+        radial-gradient(1200px 800px at 20% -10%,#1a1a3a 0%, transparent 60%),
+        radial-gradient(900px 600px at 120% 10%,#132b38 0%, transparent 55%),
+        linear-gradient(180deg,#0a0a12, #0b0b10 40%, #0a0a12 100%);
+      overflow-x:hidden;
+    }
 
-    /* Stars background */
-    .stars {
-      position:fixed; inset:0; pointer-events:none; z-index:0;
-      background-image:
-        radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.25) 50%, transparent 51%),
-        radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.18) 50%, transparent 51%),
-        radial-gradient(1.5px 1.5px at 40% 80%,rgba(255,255,255,.16) 50%, transparent 51%);
-    }
+    /* Stars background */
+    .stars {
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.25) 50%, transparent 51%),
+        radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.18) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 40% 80%,rgba(255,255,255,.16) 50%, transparent 51%);
+    }
 
-    /* ========== NAVBAR ========== */
-    header.nav {
-      position:sticky; top:0; z-index:10;
-      backdrop-filter:blur(10px); 
-      background:linear-gradient(180deg, rgba(10,10,18,.8), rgba(10,10,18,.45));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav-wrap {
-      max-width:1150px; margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 18px;
-    }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px }
-    .logo {
-      width:36px; height:36px; border-radius:12px;
-      background:conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent), var(--brand));
-      box-shadow:0 0 30px rgba(0,255,231,.25)
-    }
-    .brand span { font-size:1.05rem }
-    nav ul { display:flex; gap:22px; list-style:none; margin:0; padding:0 }
-    nav a {
-      color:var(--text); text-decoration:none; font-weight:600; opacity:.85;
-    }
-    nav a:hover { opacity:1; text-shadow:0 0 12px rgba(0,255,231,.35) }
+    /* ========== NAVBAR ========== */
+    header.nav {
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:blur(10px); 
+      background:linear-gradient(180deg, rgba(10,10,18,.8), rgba(10,10,18,.45));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-wrap {
+      max-width:1150px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+    }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px }
+    .logo {
+      width:36px; height:36px; border-radius:12px;
+      background:conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent), var(--brand));
+      box-shadow:0 0 30px rgba(0,255,231,.25)
+    }
+    .brand span { font-size:1.05rem }
+    nav ul { display:flex; gap:22px; list-style:none; margin:0; padding:0 }
+    nav a {
+      color:var(--text); text-decoration:none; font-weight:600; opacity:.85;
+    }
+    nav a:hover { opacity:1; text-shadow:0 0 12px rgba(0,255,231,.35) }
 
-    /* ========== HERO ========== */
-    .hero { 
-      position:relative; z-index:1;
-      max-width:1150px; margin:0 auto; padding:80px 18px 40px;
-    }
-    .tag {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 14px; border-radius:999px;
-      background:rgba(0,255,231,.08); border:1px solid rgba(0,255,231,.25);
-      color:var(--brand);
-    }
-    .title {
-      margin:18px 0 10px;
-      font-size:clamp(2.2rem, 5vw, 4rem);
-      line-height:1.05; font-weight:800; letter-spacing:.4px;
-    }
-    .title .grad {
-      background:linear-gradient(90deg, var(--brand) 0%, var(--accent) 50%, var(--brand-2) 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      filter:drop-shadow(0 10px 25px rgba(0,255,231,.18));
-    }
-    .subtitle { color:var(--muted); max-width:760px }
-    .cta { display:flex; gap:14px; flex-wrap:wrap; margin-top:22px }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 18px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      color:var(--text); text-decoration:none; font-weight:700;
-      box-shadow:var(--shadow);
-    }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 12px 35px rgba(0,0,0,.5) }
-    .btn.primary {
-      background:linear-gradient(90deg, var(--brand), var(--accent));
-      color:#001b1a; border:none;
-    }
+    /* ========== HERO ========== */
+    .hero { 
+      position:relative; z-index:1;
+      max-width:1150px; margin:0 auto; padding:80px 18px 40px;
+    }
+    .tag {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:999px;
+      background:rgba(0,255,231,.08); border:1px solid rgba(0,255,231,.25);
+      color:var(--brand);
+    }
+    .title {
+      margin:18px 0 10px;
+      font-size:clamp(2.2rem, 5vw, 4rem);
+      line-height:1.05; font-weight:800; letter-spacing:.4px;
+    }
+    .title .grad {
+      background:linear-gradient(90deg, var(--brand) 0%, var(--accent) 50%, var(--brand-2) 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      filter:drop-shadow(0 10px 25px rgba(0,255,231,.18));
+    }
+    .subtitle { color:var(--muted); max-width:760px }
+    .cta { display:flex; gap:14px; flex-wrap:wrap; margin-top:22px }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      color:var(--text); text-decoration:none; font-weight:700;
+      box-shadow:var(--shadow);
+    }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 12px 35px rgba(0,0,0,.5) }
+    .btn.primary {
+      background:linear-gradient(90deg, var(--brand), var(--accent));
+      color:#001b1a; border:none;
+    }
 
-    /* ========== GRID & CARDS ========== */
-    .grid { 
-      max-width:1150px; margin:0 auto;
-      padding:24px 18px 80px; 
-      display:grid; grid-template-columns:repeat(12, 1fr); gap:22px;
-    }
-    .card {
-      grid-column:span 12; background:var(--panel);
-      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-xl);
-      padding:22px; box-shadow:var(--shadow); backdrop-filter: blur(14px);
-    }
-    .card h3 { margin:0 0 8px; font-size:1.3rem }
-    .muted { color:var(--muted) }
+    /* ========== SECTIONS ========== */
+    .section {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 24px 18px 80px;
+    }
 
-    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
-    .chip {
-      padding:8px 12px; border-radius:999px;
-      background:#0f1624; border:1px solid rgba(255,255,255,.08);
-      color:#bfefff; font-weight:600; font-size:.9rem;
-    }
+    /* The main content area now has an easier layout */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
 
-    /* ========== SPLIT LAYOUTS ========== */
-    .split { display:grid; grid-template-columns:repeat(12,1fr); gap:22px; align-items:stretch }
-    .split > .card { grid-column:span 12 }
-    @media(min-width:860px) {
-      .split > .card:first-child{grid-column:span 7}
-      .split > .card:last-child{grid-column:span 5}
-    }
+    .card {
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-xl);
+      padding:22px; box-shadow:var(--shadow); backdrop-filter: blur(14px);
+    }
+    .card h3 { margin:0 0 8px; font-size:1.3rem }
+    .muted { color:var(--muted) }
 
-    /* ========== PROJECTS GRID ========== */
-    .projects { display:grid; grid-template-columns:repeat(12,1fr); gap:22px }
-    .project { grid-column:span 12; padding:0; overflow:hidden }
-    @media(min-width:760px) { .project { grid-column:span 6 } }
-    .project .cover {
-      height:180px; 
-      background:linear-gradient(120deg, rgba(0,255,231,.18), rgba(124,77,255,.22));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .project .inner { padding:18px 20px }
-    .project h4 { margin:0 0 6px }
-    .project p { margin:0; color:var(--muted) }
-    .project:hover { transform:translateY(-4px) }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
+    .chip {
+      padding:8px 12px; border-radius:999px;
+      background:#0f1624; border:1px solid rgba(255,255,255,.08);
+      color:#bfefff; font-weight:600; font-size:.9rem;
+    }
 
-    /* ========== SECTION TITLES ========== */
-    .section-title {
-      display:flex; align-items:center; gap:10px;
-      margin:26px 0 14px; font-weight:800; letter-spacing:.3px;
-    }
-    .section-title .dot {
-      width:10px; height:10px; border-radius:50%;
-      background:var(--brand); box-shadow:0 0 18px var(--brand);
-    }
+    /* ========== SPLIT LAYOUTS ========== */
+    /* Redefine the split to work within the new section structure */
+    .split {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: stretch;
+    }
+    @media(min-width:860px) {
+      .split {
+        flex-direction: row;
+      }
+      .split .card {
+        flex: 1; /* Make cards inside the split layout grow equally */
+      }
+    }
 
-    /* ========== FOOTER ========== */
-    .footer {
-      border-top:1px solid rgba(255,255,255,.06);
-      background:#0b0b12; padding:26px 18px; color:var(--muted)
-    }
+    /* ========== PROJECTS GRID ========== */
+    /* Remove the grid to make them stack */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    /* For desktop, revert to a grid-like layout */
+    @media(min-width:760px) {
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+    }
 
-    /* ========== SCROLL REVEAL ========== */
-    .reveal { opacity:0; transform:translateY(16px); transition:all .6s ease }
-    .reveal.show { opacity:1; transform:none }
-  </style>
+    .project { padding:0; overflow:hidden }
+    .project .cover {
+      height:180px; 
+      background:linear-gradient(120deg, rgba(0,255,231,.18), rgba(124,77,255,.22));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .project .inner { padding:18px 20px }
+    .project h4 { margin:0 0 6px }
+    .project p { margin:0; color:var(--muted) }
+    .project:hover { transform:translateY(-4px) }
+
+    /* ========== SECTION TITLES ========== */
+    .section-title {
+      display:flex; align-items:center; gap:10px;
+      margin:26px 0 14px; font-weight:800; letter-spacing:.3px;
+    }
+    .section-title .dot {
+      width:10px; height:10px; border-radius:50%;
+      background:var(--brand); box-shadow:0 0 18px var(--brand);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      border-top:1px solid rgba(255,255,255,.06);
+      background:#0b0b12; padding:26px 18px; color:var(--muted)
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal { opacity:0; transform:translateY(16px); transition:all .6s ease }
+    .reveal.show { opacity:1; transform:none }
+  </style>
 </head>
 <body>
-  <div class="stars"></div>
+  <div class="stars"></div>
 
-  <!-- ================= NAV ================= -->
-  <header class="nav">
-    <div class="nav-wrap">
-      <div class="brand">
-        <div class="logo"></div>
-        <span>PureDev</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header class="nav">
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="logo"></div>
+        <span>PureDev</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <span class="tag">🎮 Teen Indie Game Dev • Since 2020</span>
-    <h1 class="title">Hi, I'm <span class="grad">Abdullah bin Sheeraz</span></h1>
-    <p class="subtitle">I build <b>3D & 2D games</b> with Unity, prototype fast, and polish with style. Early Blender learner, Scratch veteran, always shipping. From Pakistan, 16 y/o.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">▶ Watch on YouTube</a>
-      <a class="btn" href="#projects">📦 View Projects</a>
-      <a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">💼 Fiverr</a>
-      <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">📸 Instagram</a>
-    </div>
-  </section>
+    <section class="hero">
+    <span class="tag">🎮 Teen Indie Game Dev • Since 2020</span>
+    <h1 class="title">Hi, I'm <span class="grad">Abdullah bin Sheeraz</span></h1>
+    <p class="subtitle">I build <b>3D & 2D games</b> with Unity, prototype fast, and polish with style. Early Blender learner, Scratch veteran, always shipping. From Pakistan, 16 y/o.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      <a class="btn" href="#projects">📦 View Projects</a>
+      <a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">💼 Fiverr</a>
+      <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">📸 Instagram</a>
+    </div>
+  </section>
 
-  <!-- ================= MAIN GRID ================= -->
-  <main class="grid">
+    <main class="main-content section">
 
-    <!-- ABOUT + FAST FACTS -->
-    <div id="about" class="split reveal">
-      <article class="card">
-        <h3>About</h3>
-        <p class="muted">I'm a self-taught developer focused on gameplay feel, level design, and rapid iteration. I love making arcade-style challenges and systems-driven sandboxes. I share builds and devlogs on my channel <b>PureDev</b>.</p>
-        <div class="chips">
-          <span class="chip">Unity (C#)</span>
-          <span class="chip">3D Gameplay</span>
-          <span class="chip">2D Arcade</span>
-          <span class="chip">Scratch</span>
-          <span class="chip">Blender (new)</span>
-        </div>
-      </article>
-      <aside class="card">
-        <h3>Fast Facts</h3>
-        <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
-          <li>Based in Pakistan</li>
-          <li>Building games since ~2020</li>
-          <li>Mainly 3D, but also 2D</li>
-          <li>Open to commissions & collabs</li>
-        </ul>
-      </aside>
-    </div>
+        <div id="about" class="split reveal">
+      <article class="card">
+        <h3>About</h3>
+        <p class="muted">I'm a self-taught developer focused on gameplay feel, level design, and rapid iteration. I love making arcade-style challenges and systems-driven sandboxes. I share builds and devlogs on my channel <b>PureDev</b>.</p>
+        <div class="chips">
+          <span class="chip">Unity (C#)</span>
+          <span class="chip">3D Gameplay</span>
+          <span class="chip">2D Arcade</span>
+          <span class="chip">Scratch</span>
+          <span class="chip">Blender (new)</span>
+        </div>
+      </article>
+      <aside class="card">
+        <h3>Fast Facts</h3>
+        <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
+          <li>Based in Pakistan</li>
+          <li>Building games since ~2020</li>
+          <li>Mainly 3D, but also 2D</li>
+          <li>Open to commissions & collabs</li>
+        </ul>
+      </aside>
+    </div>
 
-    <!-- SKILLS -->
-    <section id="skills" class="reveal">
-      <h3 class="section-title"><span class="dot"></span> Skills</h3>
-      <div class="projects">
-        <!-- Unity -->
-        <div class="card project">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Unity • C#</h4>
-            <p>Gameplay loops, physics, input, UI, scenes, builds.</p>
-          </div>
-        </div>
-        <!-- Scratch -->
-        <div class="card project">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Scratch</h4>
-            <p>Rapid prototyping, logic blocks, beginner teaching.</p>
-          </div>
-        </div>
-        <!-- Blender -->
-        <div class="card project">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Blender (new)</h4>
-            <p>Blockouts, simple props, basic animations and export.</p>
-          </div>
-        </div>
-        <!-- Game Design -->
-        <div class="card project">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Game Design</h4>
-            <p>Feel-first design, fair challenge, progression & juice.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section id="skills" class="reveal">
+      <h3 class="section-title"><span class="dot"></span> Skills</h3>
+      <div class="projects">
+                <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Unity • C#</h4>
+            <p>Gameplay loops, physics, input, UI, scenes, builds.</p>
+          </div>
+        </div>
+                <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Scratch</h4>
+            <p>Rapid prototyping, logic blocks, beginner teaching.</p>
+          </div>
+        </div>
+                <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Blender (new)</h4>
+            <p>Blockouts, simple props, basic animations and export.</p>
+          </div>
+        </div>
+                <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Game Design</h4>
+            <p>Feel-first design, fair challenge, progression & juice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <h3 class="section-title"><span class="dot"></span> Projects</h3>
-      <div class="projects">
-        <!-- Fiverr Games -->
-        <a class="card project" href="#fiverr-list" style="text-decoration:none; color:inherit">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Fiverr Games (5)</h4>
-            <p>Commissioned mini-games delivered for clients — polished, performant, and fun.</p>
-            <div class="chips">
-              <span class="chip">Fire Dodge</span>
-              <span class="chip">Whack-a-Mole</span>
-              <span class="chip">Color Memory</span>
-              <span class="chip">Face Memory</span>
-              <span class="chip">Apple Catch</span>
-            </div>
-          </div>
-        </a>
+        <section id="projects" class="reveal">
+      <h3 class="section-title"><span class="dot"></span> Projects</h3>
+      <div class="projects">
+                <a class="card project" href="#fiverr-list" style="text-decoration:none; color:inherit">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Fiverr Games (5)</h4>
+            <p>Commissioned mini-games delivered for clients — polished, performant, and fun.</p>
+            <div class="chips">
+              <span class="chip">Fire Dodge</span>
+              <span class="chip">Whack-a-Mole</span>
+              <span class="chip">Color Memory</span>
+              <span class="chip">Face Memory</span>
+              <span class="chip">Apple Catch</span>
+            </div>
+          </div>
+        </a>
 
-        <!-- Dodge Game -->
-        <div class="card project">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Dodge Game — Tutorial</h4>
-            <p>Step-by-step series showing the full build process from blank project to playable.</p>
-            <div class="chips"><span class="chip">YouTube</span><span class="chip">Unity</span></div>
-            <div style="margin-top:12px">
-              <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">Watch series</a>
-            </div>
-          </div>
-        </div>
+                <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Dodge Game — Tutorial</h4>
+            <p>Step-by-step series showing the full build process from blank project to playable.</p>
+            <div class="chips"><span class="chip">YouTube</span><span class="chip">Unity</span></div>
+            <div style="margin-top:12px">
+              <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">Watch series</a>
+            </div>
+          </div>
+        </div>
 
-        <!-- Ant Game -->
-        <div class="card project">
-          <div class="cover"></div>
-          <div class="inner">
-            <h4>Ant Game — WIP</h4>
-            <p>Systems-driven colony sim prototype with resource flow and emergent behavior.</p>
-            <div class="chips"><span class="chip">In Development</span><span class="chip">3D</span></div>
-          </div>
-        </div>
-      </div>
+                <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Ant Game — WIP</h4>
+            <p>Systems-driven colony sim prototype with resource flow and emergent behavior.</p>
+            <div class="chips"><span class="chip">In Development</span><span class="chip">3D</span></div>
+          </div>
+        </div>
+      </div>
 
-      <!-- Fiverr Detailed List -->
-      <div id="fiverr-list" class="card" style="margin-top:10px">
-        <h3>Fiverr Projects — Details</h3>
-        <ol class="muted" style="margin:0 0 0 18px; line-height:2">
-          <li>Fire Dodge</li>
-          <li>Whack-a-Mole</li>
-          <li>Color Memory</li>
-          <li>Face Memory</li>
-          <li>Apple Catch</li>
-        </ol>
-        <div style="margin-top:14px">
-          <a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Hire me on Fiverr</a>
-        </div>
-      </div>
-    </section>
+            <div id="fiverr-list" class="card" style="margin-top:10px">
+        <h3>Fiverr Projects — Details</h3>
+        <ol class="muted" style="margin:0 0 0 18px; line-height:2">
+          <li>Fire Dodge</li>
+          <li>Whack-a-Mole</li>
+          <li>Color Memory</li>
+          <li>Face Memory</li>
+          <li>Apple Catch</li>
+        </ol>
+        <div style="margin-top:14px">
+          <a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Hire me on Fiverr</a>
+        </div>
+      </div>
+    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="reveal">
-      <h3 class="section-title"><span class="dot"></span> Contact & Links</h3>
-      <div class="split">
-        <!-- Contact Info -->
-        <article class="card">
-          <h3>Let’s build something fun</h3>
-          <p class="muted">Best way to reach me is via Fiverr for commissions, or DM me on Instagram. I post devlogs and tutorials on YouTube.</p>
-          <div class="cta" style="margin-top:10px">
-            <a class="btn primary" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Start a Commission</a>
-            <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube</a>
-            <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a>
-          </div>
-                    </div>
-        </article>
+        <section id="contact" class="reveal">
+      <h3 class="section-title"><span class="dot"></span> Contact & Links</h3>
+      <div class="split">
+                <article class="card">
+          <h3>Let’s build something fun</h3>
+          <p class="muted">Best way to reach me is via Fiverr for commissions, or DM me on Instagram. I post devlogs and tutorials on YouTube.</p>
+          <div class="cta" style="margin-top:10px">
+            <a class="btn primary" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Start a Commission</a>
+            <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </article>
 
-        <!-- Quick Links -->
-        <aside class="card">
-          <h3>Quick Links</h3>
-          <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
-            <li><a href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube Channel</a></li>
-            <li><a href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Fiverr Profile</a></li>
-            <li><a href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-  </main>
+                <aside class="card">
+          <h3>Quick Links</h3>
+          <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
+            <li><a href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube Channel</a></li>
+            <li><a href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Fiverr Profile</a></li>
+            <li><a href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <p>© 2025 PureDev — Abdullah bin Sheeraz. All rights reserved.</p>
-  </footer>
+    <footer class="footer">
+    <p>© 2025 PureDev — Abdullah bin Sheeraz. All rights reserved.</p>
+  </footer>
 
-  <!-- ================= JS (Scroll Reveal) ================= -->
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-      reveals.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < trigger) el.classList.add('show');
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
+    <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) el.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
