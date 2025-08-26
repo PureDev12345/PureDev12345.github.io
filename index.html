@@ -1,198 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PureDev - Abdullah Bin Sheeraz</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <title>PureDev — Abdullah bin Sheeraz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="PureDev — Abdullah bin Sheeraz. Teen indie game developer from Pakistan. Unity • 3D/2D • Scratch • Blender. Portfolio, projects, and links." />
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --bg: #0b0b10;
+      --panel: rgba(20,20,30,.6);
+      --panel-solid: #141424;
+      --text: #e8f7ff;
+      --muted: #a9b7c7;
+      --brand: #00ffe7;
+      --brand-2: #7c4dff;
+      --accent: #00b8ff;
+      --shadow: 0 10px 40px rgba(0,0,0,.45);
+      --radius-xl: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 800px at 20% -10%,#1a1a3a 0%, transparent 60%),
+                         radial-gradient(900px 600px at 120% 10%,#132b38 0%, transparent 55%),
+                         linear-gradient(180deg,#0a0a12, #0b0b10 40%, #0a0a12 100%);
+      overflow-x:hidden;
+    }
+    /* Subtle animated stars */
+    .stars{position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.25) 50%, transparent 51%),radial-gradient(1px 1px at 70% 20%,rgba(255,255,255,.18) 50%, transparent 51%),radial-gradient(1.5px 1.5px at 40% 80%,rgba(255,255,255,.16) 50%, transparent 51%);}    
+    header.nav{position:sticky; top:0; z-index:10; backdrop-filter:blur(10px); background:linear-gradient(180deg, rgba(10,10,18,.8), rgba(10,10,18,.45)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-wrap{max-width:1150px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 18px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.5px}
+    .logo{position:relative; width:36px; height:36px; border-radius:12px; background:conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--accent), var(--brand)); box-shadow:0 0 30px rgba(0,255,231,.25)}
+    .brand span{font-size:1.05rem}
+    nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+    nav a{color:var(--text); text-decoration:none; font-weight:600; opacity:.85}
+    nav a:hover{opacity:1; text-shadow:0 0 12px rgba(0,255,231,.35)}
+
+    .hero{position:relative; z-index:1; max-width:1150px; margin:0 auto; padding:80px 18px 40px}
+    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:rgba(0,255,231,.08); border:1px solid rgba(0,255,231,.25); color:var(--brand)}
+    .title{margin:18px 0 10px; font-size:clamp(2.2rem, 5vw, 4rem); line-height:1.05; font-weight:800; letter-spacing:.4px}
+    .title .grad{background:linear-gradient(90deg, var(--brand) 0%, var(--accent) 50%, var(--brand-2) 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 10px 25px rgba(0,255,231,.18))}
+    .subtitle{color:var(--muted); max-width:760px}
+    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text); text-decoration:none; font-weight:700; box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 12px 35px rgba(0,0,0,.5)}
+    .btn.primary{background:linear-gradient(90deg, var(--brand), var(--accent)); color:#001b1a; border:none}
+
+    .grid{max-width:1150px; margin:0 auto; padding:24px 18px 80px; display:grid; grid-template-columns:repeat(12, 1fr); gap:22px}
+    .card{grid-column:span 12; background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius-xl); padding:22px; box-shadow:var(--shadow); backdrop-filter: blur(14px)}
+    .card h3{margin:0 0 8px; font-size:1.3rem}
+    .muted{color:var(--muted)}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .chip{padding:8px 12px; border-radius:999px; background:#0f1624; border:1px solid rgba(255,255,255,.08); color:#bfefff; font-weight:600; font-size:.9rem}
+
+    /* Sections */
+    .split{display:grid; grid-template-columns:repeat(12,1fr); gap:22px; align-items:stretch}
+    .split > .card{grid-column:span 12}
+    @media(min-width:860px){
+      .split > .card:first-child{grid-column:span 7}
+      .split > .card:last-child{grid-column:span 5}
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0b0b0f;
-      color: #f1f1f1;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    .projects{display:grid; grid-template-columns:repeat(12,1fr); gap:22px}
+    .project{grid-column:span 12; padding:0; overflow:hidden}
+    @media(min-width:760px){ .project{grid-column:span 6} }
+    .project .cover{height:180px; background:linear-gradient(120deg, rgba(0,255,231,.18), rgba(124,77,255,.22)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .project .inner{padding:18px 20px}
+    .project h4{margin:0 0 6px}
+    .project p{margin:0; color:var(--muted)}
+    .project:hover{transform:translateY(-4px)}
 
-    /* HEADER */
-    header {
-      padding: 6rem 2rem 4rem;
-      text-align: center;
-      background: radial-gradient(circle at top, #14141f, #0b0b0f);
-    }
+    .section-title{display:flex; align-items:center; gap:10px; margin:26px 0 14px; font-weight:800; letter-spacing:.3px}
+    .section-title .dot{width:10px; height:10px; border-radius:50%; background:var(--brand); box-shadow:0 0 18px var(--brand)}
 
-    header h1 {
-      font-size: 3.8rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, #00ffe7, #0099ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
-    }
+    .footer{border-top:1px solid rgba(255,255,255,.06); background:#0b0b12; padding:26px 18px; color:var(--muted)}
 
-    header p {
-      font-size: 1.3rem;
-      color: #aaa;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    /* CONTAINER */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 3rem 2rem;
-    }
-
-    section {
-      padding: 3rem 0;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, #00ffe7, #0099ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* ABOUT */
-    .bio p {
-      font-size: 1.1rem;
-      color: #ccc;
-      max-width: 800px;
-    }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: #15151f;
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(0, 255, 231, 0.15);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 255, 231, 0.05), transparent 70%);
-      transform: rotate(25deg);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0, 255, 231, 0.15);
-    }
-
-    .project-card h3 {
-      color: #00ffe7;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card p {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
-
-    /* SOCIALS */
-    .socials a {
-      display: inline-block;
-      margin-right: 1rem;
-      margin-bottom: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      background: #111;
-      color: #00ffe7;
-      text-decoration: none;
-      font-weight: 500;
-      border: 1px solid rgba(0, 255, 231, 0.3);
-      transition: background 0.3s, color 0.3s, transform 0.2s;
-    }
-
-    .socials a:hover {
-      background: #00ffe7;
-      color: #0b0b0f;
-      transform: translateY(-3px);
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2.5rem;
-      background: #0a0a0d;
-      color: #666;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
+    /* Scroll reveal */
+    .reveal{opacity:0; transform:translateY(16px); transition:all .6s ease}
+    .reveal.show{opacity:1; transform:none}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>PureDev</h1>
-    <p>Abdullah Bin Sheeraz – 16 y/o Unity Game Developer from Pakistan</p>
+  <div class="stars"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="logo"></div>
+        <span>PureDev</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <div class="container">
-    <section class="bio">
-      <h2>About Me</h2>
-      <p>Hi! I'm Abdullah Bin Sheeraz. I'm a 16-year-old game developer from Pakistan. I started game development in 2020 and have since built skills in Unity, Scratch, and Blender (still learning). I primarily create 3D games, but I’ve also explored 2D development. My goal is to build immersive, fun, and creative experiences for players worldwide.</p>
-    </section>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="tag">🎮 Teen Indie Game Dev • Since 2020</span>
+    <h1 class="title">Hi, I'm <span class="grad">Abdullah bin Sheeraz</span></h1>
+    <p class="subtitle">I build <b>3D & 2D games</b> with Unity, prototype fast, and polish with style. Early Blender learner, Scratch veteran, always shipping. From Pakistan, 16 y/o.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      <a class="btn" href="#projects">📦 View Projects</a>
+      <a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">💼 Fiverr</a>
+      <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">📸 Instagram</a>
+    </div>
+  </section>
 
-    <section class="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Fiverr Games</h3>
-          <p>Games made for Fiverr clients: Fire Dodge, Whack A Mole, Color Memory, Face Memory, Apple Catch.</p>
+  <!-- CONTENT GRID -->
+  <main class="grid">
+
+    <!-- ABOUT + STATS -->
+    <div id="about" class="split reveal">
+      <article class="card">
+        <h3>About</h3>
+        <p class="muted">I'm a self‑taught developer focused on gameplay feel, level design, and rapid iteration. I love making arcade‑style challenges and systems‑driven sandboxes. I share builds and devlogs on my channel <b>PureDev</b>.</p>
+        <div class="chips">
+          <span class="chip">Unity (C#)</span>
+          <span class="chip">3D Gameplay</span>
+          <span class="chip">2D Arcade</span>
+          <span class="chip">Scratch</span>
+          <span class="chip">Blender (new)</span>
         </div>
-        <div class="project-card">
-          <h3>Dodge Game Tutorial</h3>
-          <p>A fun tutorial I made to help beginners create a basic dodge-style game in Unity.</p>
+      </article>
+      <aside class="card">
+        <h3>Fast Facts</h3>
+        <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
+          <li>Based in Pakistan</li>
+          <li>Building games since ~2020</li>
+          <li>Mainly 3D, but also 2D</li>
+          <li>Open to commissions & collabs</li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+      <h3 class="section-title"><span class="dot"></span> Skills</h3>
+      <div class="projects">
+        <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Unity • C#</h4>
+            <p>Gameplay loops, physics, input, UI, scenes, builds.</p>
+          </div>
         </div>
-        <div class="project-card">
-          <h3>Ant Game</h3>
-          <p>A unique strategy game where ants gather sugar and work together – currently in development!</p>
+        <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Scratch</h4>
+            <p>Rapid prototyping, logic blocks, beginner teaching.</p>
+          </div>
+        </div>
+        <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Blender (new)</h4>
+            <p>Blockouts, simple props, basic animations and export.</p>
+          </div>
+        </div>
+        <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Game Design</h4>
+            <p>Feel-first design, fair challenge, progression & juice.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="socials">
-      <h2>Find Me Online</h2>
-      <a href="https://www.youtube.com/@puredev12345" target="_blank">YouTube</a>
-      <a href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank">Instagram</a>
-      <a href="https://www.fiverr.com/abdullah1946" target="_blank">Fiverr</a>
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+      <h3 class="section-title"><span class="dot"></span> Projects</h3>
+
+      <div class="projects">
+        <!-- Fiverr group card that links to list below -->
+        <a class="card project" href="#fiverr-list" style="text-decoration:none; color:inherit">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Fiverr Games (5)</h4>
+            <p>Commissioned mini‑games delivered for clients — polished, performant, and fun.</p>
+            <div class="chips">
+              <span class="chip">Fire Dodge</span>
+              <span class="chip">Whack‑a‑Mole</span>
+              <span class="chip">Color Memory</span>
+              <span class="chip">Face Memory</span>
+              <span class="chip">Apple Catch</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Dodge Game — Tutorial</h4>
+            <p>Step‑by‑step series showing the full build process from blank project to playable.</p>
+            <div class="chips"><span class="chip">YouTube</span><span class="chip">Unity</span></div>
+            <div style="margin-top:12px"><a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">Watch series</a></div>
+          </div>
+        </div>
+
+        <div class="card project">
+          <div class="cover"></div>
+          <div class="inner">
+            <h4>Ant Game — WIP</h4>
+            <p>Systems‑driven colony sim prototype with resource flow and emergent behavior.</p>
+            <div class="chips"><span class="chip">In Development</span><span class="chip">3D</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fiverr detailed list -->
+      <div id="fiverr-list" class="card" style="margin-top:10px">
+        <h3 style="margin:0 0 8px">Fiverr Projects — Details</h3>
+        <ol class="muted" style="margin:0 0 0 18px; line-height:2">
+          <li>Fire Dodge</li>
+          <li>Whack‑a‑Mole</li>
+          <li>Color Memory</li>
+          <li>Face Memory</li>
+          <li>Apple Catch</li>
+        </ol>
+        <div style="margin-top:14px"><a class="btn" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Hire me on Fiverr</a></div>
+      </div>
     </section>
-  </div>
 
-  <footer>
-    &copy; 2025 Abdullah Bin Sheeraz | PureDev
+    <!-- CONTACT / LINKS -->
+    <section id="contact" class="reveal">
+      <h3 class="section-title"><span class="dot"></span> Contact & Links</h3>
+      <div class="split">
+        <article class="card">
+          <h3>Let’s build something fun</h3>
+          <p class="muted">Best way to reach me is via Fiverr for commissions, or DM me on Instagram. I post devlogs and tutorials on YouTube.</p>
+          <div class="cta" style="margin-top:10px">
+            <a class="btn primary" href="https://www.fiverr.com/abdullah1946" target="_blank" rel="noopener">Start a Commission</a>
+            <a class="btn" href="https://www.youtube.com/@puredev12345" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn" href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </article>
+        <aside class="card">
+          <h3>Availability</h3>
+          <ul class="muted" style="margin:10px 0 0 16px; line-height:1.9">
+            <li>Part‑time (student schedule)</li>
+            <li>Short arcade projects ideal</li>
+            <li>Unity only (for now)</li>
+            <li>Remote friendly</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div style="max-width:1150px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <span>© <span id="year"></span> PureDev • Built with Unity vibes</span>
+      <a href="#" class="btn" style="padding:8px 12px">↑ Back to top</a>
+    </div>
   </footer>
-</body>
 
+  <script>
+    // dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple scroll reveal
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+</body>
 </html>
