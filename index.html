@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    /* RESET */
     * {
       margin: 0;
       padding: 0;
@@ -17,33 +18,41 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
+      background: #0b0b0f;
       color: #f1f1f1;
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      padding: 5rem 2rem 3rem;
+      padding: 6rem 2rem 4rem;
       text-align: center;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      background: radial-gradient(circle at top, #14141f, #0b0b0f);
     }
 
     header h1 {
-      font-size: 3.5rem;
-      color: #00ffe7;
+      font-size: 3.8rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #00ffe7, #0099ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
+      letter-spacing: 2px;
     }
 
     header p {
-      font-size: 1.2rem;
-      color: #ccc;
+      font-size: 1.3rem;
+      color: #aaa;
+      max-width: 600px;
+      margin: auto;
     }
 
+    /* CONTAINER */
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 2rem;
+      padding: 3rem 2rem;
     }
 
     section {
@@ -51,61 +60,94 @@
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #00ffe7;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #00ffe7, #0099ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .bio, .projects, .socials {
-      margin-bottom: 3rem;
+    /* ABOUT */
+    .bio p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 800px;
     }
 
+    /* PROJECTS */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 2rem;
     }
 
     .project-card {
-      background: #1f1f1f;
-      padding: 1.5rem;
-      border-radius: 12px;
-      border-left: 5px solid #00ffe7;
-      transition: transform 0.3s ease;
+      background: #15151f;
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 255, 231, 0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 231, 0.05), transparent 70%);
+      transform: rotate(25deg);
     }
 
     .project-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 255, 231, 0.15);
     }
 
     .project-card h3 {
-      margin-bottom: 0.5rem;
       color: #00ffe7;
+      margin-bottom: 0.5rem;
     }
 
     .project-card p {
-      color: #ccc;
+      color: #aaa;
+      font-size: 0.95rem;
     }
 
+    /* SOCIALS */
     .socials a {
       display: inline-block;
       margin-right: 1rem;
+      margin-bottom: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      background: #111;
       color: #00ffe7;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      font-weight: 500;
+      border: 1px solid rgba(0, 255, 231, 0.3);
+      transition: background 0.3s, color 0.3s, transform 0.2s;
     }
 
     .socials a:hover {
-      color: #00c2b7;
+      background: #00ffe7;
+      color: #0b0b0f;
+      transform: translateY(-3px);
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 2rem;
-      background: #111;
-      color: #777;
+      padding: 2.5rem;
+      background: #0a0a0d;
+      color: #666;
       font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
   </style>
 </head>
@@ -119,7 +161,7 @@
   <div class="container">
     <section class="bio">
       <h2>About Me</h2>
-      <p>Hi! I'm Abdullah Bin Sheeraz. I'm a 16-year-old game developer from Pakistan. I started game development in 2020 and have since built skills in Unity, Scratch, and Blender (still learning). I primarily create 3D games, but I’ve also dabbled in 2D.</p>
+      <p>Hi! I'm Abdullah Bin Sheeraz. I'm a 16-year-old game developer from Pakistan. I started game development in 2020 and have since built skills in Unity, Scratch, and Blender (still learning). I primarily create 3D games, but I’ve also explored 2D development. My goal is to build immersive, fun, and creative experiences for players worldwide.</p>
     </section>
 
     <section class="projects">
@@ -127,7 +169,7 @@
       <div class="projects-grid">
         <div class="project-card">
           <h3>Fiverr Games</h3>
-          <p>Games made for Fiverr clients: Fire Dodge, Whack A Mole, Color Memory, Face Memory, Apple Catch</p>
+          <p>Games made for Fiverr clients: Fire Dodge, Whack A Mole, Color Memory, Face Memory, Apple Catch.</p>
         </div>
         <div class="project-card">
           <h3>Dodge Game Tutorial</h3>
@@ -143,7 +185,6 @@
     <section class="socials">
       <h2>Find Me Online</h2>
       <a href="https://www.youtube.com/@puredev12345" target="_blank">YouTube</a>
-      <a href="https://www.linkedin.com/in/abdullah-sheeraz-730664379/" target="_blank">LinkedIn</a>
       <a href="https://www.instagram.com/abdullahsheeraz_99/" target="_blank">Instagram</a>
       <a href="https://www.fiverr.com/abdullah1946" target="_blank">Fiverr</a>
     </section>
